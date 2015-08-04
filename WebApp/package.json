@@ -1,0 +1,23 @@
+{
+  "name": "WebApp",
+  "version": "1.0.0",
+  "description": "packages for peekaboohh",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/karm435/Peekaboohh.git"
+  },
+  "author": "Karmjit Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karm435/Peekaboohh/issues"
+  },
+  "homepage": "https://github.com/karm435/Peekaboohh",
+  "devDependencies": {
+    "cordova": "^5.1.1",
+    "ionic": "^1.6.4"
+  }
+}
