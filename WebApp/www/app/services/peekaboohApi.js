@@ -3,18 +3,13 @@
 
 	angular
 	  .module('peekaboohApp')
-	  .factory('peekaboohApiService', peekaboohApiService);//
+	  .service('peekaboohApiService', peekaboohApiService);//
 
 	//peekaboohApiService.$inject = ['dependencies'];
 
 	function peekaboohApiService() {
-		//content
-		function getTeachers(){
-
-		}
-
-		function getTimeTables(){
-			return [{
+		var self = this;
+		self.timeTableData = [{
 				id:1,
 				forClass:'10th Standard',
 				numberOfStudents:200
@@ -23,11 +18,19 @@
 				id:2,
 				forClass:'11th Standard',
 				numberOfStudents:100
-			}]
+			}];
+
+		
+		function getTeachers(){
+
+		}
+
+		function getTimeTables(){
+			return self.timeTableData; 
 		}
 
 		function getTimeTableById (id) {
-			// body...
+			return _.find(self.timeTableData, {'id': id});
 		}
 
 		function getStudents () {
@@ -40,6 +43,5 @@
 			getTimeTables: getTimeTables,
 			getTimeTableById: getTimeTableById
 		}
-
 	}
 })();

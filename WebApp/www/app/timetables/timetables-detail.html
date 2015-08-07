@@ -1,5 +1,11 @@
-<ion-view view-title="Time Table Details" ng-controller="timeTableDetailsCtrl">
+<ion-view view-title="{{vm.title}}" ng-controller="timeTableDetailsCtrl as vm">
   <ion-content class="has-header">
-    <h1>Time Table Details</h1>
+    <div>
+    	{{vm.details.forClass}}
+    </div>
+    <div>
+    	{{vm.details.numberOfStudents}}
+    </div>
+
   </ion-content>
 </ion-view>

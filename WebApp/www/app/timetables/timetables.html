@@ -1,8 +1,11 @@
-<ion-view view-title="Time Table">
+<ion-view view-title="Time Table" ng-controller="timeTablesCtrl as vm">
   <ion-content class="has-header">
-    <h1>Time Tables</h1>
-
-     <a href="#/app/timetables/21" class="button button-positive">TimeTable 21</a>
-
+    <div class="list">
+    	<a class="item item-icon-right" ng-repeat="timetable in vm.timetables" 
+    		 ui-sref="app.timetablesdetail({id: timetable.id})">
+    		{{timetable.forClass}}
+    		<i class="icon ion-chevron-right icon-accessory"></i>
+    	</a>
+    </div>
   </ion-content>
 </ion-view>
