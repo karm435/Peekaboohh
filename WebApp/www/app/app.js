@@ -17,14 +17,80 @@ angular.module("peekaboohApp", ["ionic"])
 	$stateProvider
 
 	.state('home',{
+		abstract : true,
 			url : "/home",
 			templateUrl: "app/home/home.html"
 			})
+	.state('home.attendance',{
+		url:"/attendance",
+		views:{
+			"tab-myAttendance" : {
+				templateUrl : "app/home/attendance.html"
+			}
+		}
+	})
+
+	.state('home.mytimetable',{
+		url:"/timetable",
+		views:{
+			"tab-myTimetable" : {
+				templateUrl : "app/home/time-table.html"
+			}
+		}
+	})
+
+	.state('home.mysettings',{
+		url:"/settings",
+		views:{
+			"tab-mySettings" : {
+				templateUrl : "app/home/settings.html"
+			}
+		}
+	})
+
 	.state('app',{
+		abstract:true,
 		url:'/app',
 		templateUrl:'app/layout/menu-layout.html'
 	})
 
-	$urlRouterProvider.otherwise('/app');
+	.state('app.students',{
+		url:"/students",
+		views: {
+			"mainContent" : {
+				templateUrl:"app/students/students.html"
+			}
+		}
+	})
+
+	.state('app.teachers',{
+		url:"/teachers",
+		views: {
+			"mainContent" : {
+				templateUrl:"app/teachers/teachers.html"
+			}
+		}
+	})
+
+	.state('app.timetables',{
+		url:"/timetables",
+		views: {
+			"mainContent" : {
+				templateUrl:"app/timetables/timetables.html"
+			}
+		}
+	})
+
+	.state('app.timetablesdetail',{
+		url:"/timetables/:id",
+		views: {
+			"mainContent" : {
+				templateUrl:"app/timetables/timetables-detail.html"
+			}
+		}
+	})
+
+
+	$urlRouterProvider.otherwise('/app/teachers');
 
 });

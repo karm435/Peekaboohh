@@ -2,11 +2,16 @@
   <!-- Center content -->
   <ion-side-menu-content>
   	<ion-nav-bar class="bar-royal">
+  		<<ion-nav-back-button class="button-clear">
+  		  <i class="ion-arrow-left-c"></i> Back
+  		</ion-nav-back-button>
+
   		  <ion-nav-buttons side="left">
   		    <button menu-toggle='left' class="button button-icon icon ion-navicon">
   		    </button>
   		  </ion-nav-buttons>
   	</ion-nav-bar>
+  	<ion-nav-view name="mainContent" animation="slide-left-right"></ion-nav-view>
   </ion-side-menu-content>
 
   <!-- Left menu -->
@@ -17,10 +22,10 @@
 
   	<ion-content class='has-header'>
   		<ion-list>
-  		  <ion-item nav-clear menu-close>Home</ion-item>
-  		  <ion-item nav-clear menu-close>Students</ion-item>
-  		  <ion-item nav-clear menu-close>Teachers</ion-item>
-  		  <ion-item nav-clear menu-close>Time Tables</ion-item>
+  		  <ion-item nav-clear menu-close ui-sref="home.mytimetable">Home</ion-item>
+  		  <ion-item nav-clear menu-close ui-sref="app.students">Students</ion-item>
+  		  <ion-item nav-clear menu-close ui-sref="app.teachers">Teachers</ion-item>
+  		  <ion-item nav-clear menu-close ui-sref="app.timetables">Time Tables</ion-item>
   		</ion-list>
   	</ion-content>
   </ion-side-menu>
