@@ -1,11 +1,22 @@
 <ion-view view-title="Time Table" ng-controller="timeTablesCtrl as vm">
-  <ion-content class="has-header">
-    <div class="list">
-    	<a class="item item-icon-right" ng-repeat="timetable in vm.timetables" 
-    		 ui-sref="app.timetablesdetail({id: timetable.id})">
-    		{{timetable.forClass}}
-    		<i class="icon ion-chevron-right icon-accessory"></i>
-    	</a>
-    </div>
-  </ion-content>
+    <ion-content class="has-header">
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="vm.loadList(true)">
+        </ion-refresher>
+        <div class="list">
+            <a class="item item-icon-right" ng-repeat="timetable in vm.timetables" ui-sref="app.timetablesdetail({id: timetable.id})">
+                <div class="row">
+                    <div class="col-40 col-center">
+                        {{timetable.forClass}}
+                    </div>
+                    <div class="col col-center">
+                        {{timetable.numberOfStudents}}
+                    </div>
+                    <div class="col col-center">
+                        {{timetable.teacherName}}
+                    </div>
+                </div>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </a>
+        </div>
+    </ion-content>
 </ion-view>

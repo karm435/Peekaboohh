@@ -1,17 +1,24 @@
 (function() {
-	'use strict';
+    'use strict';
 
-	angular
-	  .module('peekaboohApp')
-	  .controller('timeTablesCtrl', ['$state','peekaboohApiService', timeTablesCtrl]);
+    angular
+        .module('peekaboohApp')
+        .controller('timeTablesCtrl', ['$state', '$scope', 'peekaboohApiService', timeTablesCtrl]);
 
-	function timeTablesCtrl($state,peekaboohApiService) {
-		//content
-		var vm = this;
+    function timeTablesCtrl($state, $scope, peekaboohApiService) {
+        //content
+        var vm = this;
 
-		var timetables = peekaboohApiService.getTimeTables();
-		console.log(timetables);
+        vm.loadList = function(forceRefresh) {
+            peekaboohApiService.getTimeTables(forceRefresh).then(function(data) {
+                vm.timetables = data;
+            }).finally(function() {
+                $scope.$broadcast("scroll.refreshComplete");
+            });
+            //console.log(timetables);
+        };
 
-		vm.timetables = timetables;
-	}
+        vm.loadList(false);
+
+    }
 })();
