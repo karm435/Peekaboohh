@@ -1,4 +1,4 @@
-angular.module("peekaboohApp", ["ionic", "angular-cache"])
+angular.module("peekaboohApp", ["ionic", "angular-cache", "ngCordova"])
 
 .run(function($ionicPlatform, CacheFactory) {
     $ionicPlatform.ready(function() {
